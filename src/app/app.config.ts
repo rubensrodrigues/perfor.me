@@ -7,6 +7,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { AppConstants } from './comum/app-constants';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClient, HttpHandler, provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export function tokenGetter() {
   return localStorage.getItem(AppConstants.tokenName);
@@ -25,6 +26,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     importProvidersFrom(JwtModule.forRoot(options)),
     LoginComponent,
-    provideHttpClient()
+    provideHttpClient(), provideAnimationsAsync()
   ]
 };
